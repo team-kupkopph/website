@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://kupkop.ph/sitemap.xml
+Sitemap: https://kupkopph.com/sitemap.xml

@@ -27,7 +27,7 @@ and a small JS file.
 
 ### Other files
 - `robots.txt` — allows all crawlers, points to the sitemap
-- `sitemap.xml` — lists all public pages (uses `https://kupkop.ph`)
+- `sitemap.xml` — lists all public pages (uses `https://kupkopph.com`)
 - `gen-assets.js` — regenerates the share image + favicons (`node gen-assets.js`)
 
 ### Shared assets
@@ -74,11 +74,11 @@ The owning inbox is **team.kupkopph@gmail.com**.
 ## Domain & social previews
 
 The Open Graph / Twitter tags and `sitemap.xml` / `robots.txt` use the absolute base URL
-**`https://kupkop.ph`**. Social platforms (Facebook, Instagram, Messenger, Twitter/X)
+**`https://kupkopph.com`**. Social platforms (Facebook, Instagram, Messenger, Twitter/X)
 **require absolute URLs** for the share image to appear.
 
 > ⚠️ If you deploy to a different domain (e.g. a Netlify/Vercel subdomain), find-and-replace
-> `https://kupkop.ph` across all `.html` files, `sitemap.xml`, and `robots.txt` with your
+> `https://kupkopph.com` across all `.html` files, `sitemap.xml`, and `robots.txt` with your
 > real URL — otherwise link previews and the sitemap will point to the wrong place.
 
 After deploying, paste your URL into the **[Facebook Sharing Debugger](https://developers.facebook.com/tools/debug/)**
@@ -125,7 +125,7 @@ so the publish/output directory is `/`.**
 
 **Recommended host: Netlify** — easiest to set up and maintain for a pre-launch site.
 
-### Step-by-step: deploy to Netlify + connect `kupkop.ph`
+### Step-by-step: deploy to Netlify + connect `kupkopph.com`
 
 **A. Push the repo to GitHub** (this folder is already a git repo)
 ```bash
@@ -141,26 +141,26 @@ git push -u origin main
 4. You'll get a temporary URL like `kupkopph.netlify.app` — open it and confirm everything works.
 
 **C. Register the domain**
-- Register **`kupkop.ph`** at the official registrar **[domains.dot.ph](https://domains.dot.ph)**
-  (~₱1,200–2,500/yr). Register it to **team.kupkopph@gmail.com**.
+- The live domain is **`kupkopph.com`** (registered via a `.com` registrar such as Namecheap,
+  GoDaddy, or Cloudflare Registrar). Keep it under **team.kupkopph@gmail.com**.
 
 **D. Connect the domain in Netlify**
-- Netlify → site → **Domain settings → Add a custom domain →** `kupkop.ph`. Then either:
+- Netlify → site → **Domain settings → Add a custom domain →** `kupkopph.com`. Then either:
   - **Option A (recommended) — Netlify DNS:** copy the 4 nameservers Netlify shows, log into
     dot.ph, and replace the domain's nameservers with them. Netlify manages DNS + SSL.
   - **Option B — keep DNS at dot.ph:** add an `A` record for `@` → `75.2.60.5`, and a
     `CNAME` for `www` → `your-site.netlify.app`.
 
 **E. After it's live**
-- Netlify auto-issues a free **SSL certificate** (wait a few minutes → `https://kupkop.ph`).
+- Netlify auto-issues a free **SSL certificate** (wait a few minutes → `https://kupkopph.com`).
 - Set `www` to redirect to the root domain (Netlify does this automatically).
 - DNS can take a few hours to propagate — be patient.
 - Validate the share card at the
   [Facebook Sharing Debugger](https://developers.facebook.com/tools/debug/).
 
-> The OG tags, `sitemap.xml`, and `robots.txt` already use `https://kupkop.ph`, so **no edits
+> The OG tags, `sitemap.xml`, and `robots.txt` already use `https://kupkopph.com`, so **no edits
 > are needed once the domain is live**. Only if you stay on a temp URL (e.g.
-> `kupkopph.netlify.app`) should you find-and-replace `https://kupkop.ph` with that URL — and
+> `kupkopph.netlify.app`) should you find-and-replace `https://kupkopph.com` with that URL — and
 > switch it back when the domain is connected.
 
 **To update the site later:** edit files → `git commit` → `git push`. Netlify redeploys
@@ -177,6 +177,6 @@ automatically. (Drag-and-drop users: re-drop the folder.)
 - [x] Favicon + apple-touch-icon
 - [x] `sitemap.xml` + `robots.txt`
 - [ ] Confirm both forms are public ("Anyone can respond")
-- [ ] Deploy + connect a domain (then replace `https://kupkop.ph` if it differs)
+- [ ] Deploy + connect a domain (then replace `https://kupkopph.com` if it differs)
 - [ ] Expand legal pages before the app launches
 - [ ] (Later) App Store / Play Store links once the app ships
