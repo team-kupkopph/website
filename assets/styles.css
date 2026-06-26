@@ -125,6 +125,14 @@ section{padding:72px 0}
 .form-note{font-size:13px;color:#cfe6e3;margin-top:14px}
 .thanks{display:none;background:rgba(255,255,255,.15);border-radius:14px;padding:16px 20px;margin-top:20px;font-weight:600}
 
+/* app sneak-peek */
+.phones{display:flex;justify-content:center;align-items:flex-end;gap:32px;flex-wrap:wrap}
+.phone{flex:0 0 auto;width:240px;text-align:center}
+.phone img{width:100%;height:auto;filter:drop-shadow(0 18px 40px rgba(20,80,79,.18))}
+.phone .cap{margin-top:14px;color:var(--muted);font-size:15px;font-weight:600}
+.peek-note{text-align:center;color:var(--hint);font-size:13.5px;margin-top:30px}
+@media (max-width:560px){ .phone{width:60%} }
+
 /* CTA band */
 .ctaband{text-align:center;background:var(--bg3);border-radius:24px;padding:52px 32px}
 .ctaband h2{margin-bottom:.3em}
