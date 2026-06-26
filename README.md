@@ -104,6 +104,35 @@ across the folder).
 
 ---
 
+## Analytics & cookies
+
+The site uses **Google Analytics 4** (Measurement ID **`G-YSDXN04WW9`**) with **Google
+Consent Mode**.
+
+- The GA snippet is in the `<head>` of every page. It sets `analytics_storage: 'denied'`
+  **by default** — no analytics cookies load until the visitor clicks **Accept**.
+- A **cookie consent banner** appears on first visit (built in `assets/app.js`, styled by the
+  `.cookie` rules in `assets/styles.css`). Accept → consent granted + remembered in
+  `localStorage` (`kkp-consent`); Decline → analytics stays off.
+- A **"Manage cookies"** link in every footer re-opens the banner so visitors can change their
+  choice (also injected by `assets/app.js`).
+- The Privacy Policy's **"Cookies & analytics"** section discloses this (required by RA 10173
+  and Google).
+
+**To change the GA ID:** find-and-replace `G-YSDXN04WW9` across all `.html` files.
+
+**Verifying it works:** after deploying, open the live site and check GA → **Reports →
+Realtime** (won't reliably register from local preview).
+
+**Tracking form clicks as conversions:** the waitlist/partner buttons are outbound links to
+Google Forms, so GA4 auto-tracks them as `click` events. In GA4 → Admin → **Events → Create
+event**, make custom events matching `event_name = click` and `link_url contains` the form ID
+(`1FAIpQLSdd4gNNPfSLh3` = waitlist, `1FAIpQLSfQJq7Srr` = partner), then mark them as **Key
+events**. Add UTM params to social links (e.g. `?utm_source=instagram&utm_medium=social`) to
+see which channel drives signups.
+
+---
+
 ## Editing tips
 
 - **Colors / spacing:** change the CSS variables in `:root` at the top of
@@ -176,7 +205,11 @@ automatically. (Drag-and-drop users: re-drop the folder.)
 - [x] Social-share image (`og:image`) + OG/Twitter tags on every page
 - [x] Favicon + apple-touch-icon
 - [x] `sitemap.xml` + `robots.txt`
+- [x] App mockup sneak-peeks (Home, How it works, For shelters)
+- [x] Google Analytics 4 + consent-mode cookie banner + "Manage cookies"
 - [ ] Confirm both forms are public ("Anyone can respond")
+- [ ] In GA4: mark `waitlist_click` / `partner_click` as Key events
+- [ ] Confirm GA Realtime shows traffic on the live domain
 - [ ] Deploy + connect a domain (then replace `https://kupkopph.com` if it differs)
 - [ ] Expand legal pages before the app launches
 - [ ] (Later) App Store / Play Store links once the app ships

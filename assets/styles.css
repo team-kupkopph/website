@@ -125,6 +125,20 @@ section{padding:72px 0}
 .form-note{font-size:13px;color:#cfe6e3;margin-top:14px}
 .thanks{display:none;background:rgba(255,255,255,.15);border-radius:14px;padding:16px 20px;margin-top:20px;font-weight:600}
 
+/* cookie consent banner */
+.cookie{position:fixed;left:16px;right:16px;bottom:16px;z-index:200;max-width:760px;margin:0 auto;
+  background:#11241f;color:#e7eeeb;border-radius:16px;padding:18px 22px;box-shadow:0 12px 40px rgba(0,0,0,.25);
+  display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.cookie p{margin:0;font-size:14.5px;flex:1;min-width:240px;line-height:1.5}
+.cookie a{color:#9fd3cd;text-decoration:underline}
+.cookie .actions{display:flex;gap:10px;flex-wrap:wrap}
+.cookie button{font-family:inherit;font-weight:600;font-size:14px;padding:10px 18px;border-radius:999px;cursor:pointer;border:2px solid transparent}
+.cookie .accept{background:var(--accent);color:#fff;border-color:var(--accent)}
+.cookie .accept:hover{background:#247373}
+.cookie .decline{background:transparent;color:#cdd8d4;border-color:#3a4f48}
+.cookie .decline:hover{background:rgba(255,255,255,.08)}
+@media (max-width:520px){ .cookie{flex-direction:column;align-items:stretch} .cookie .actions{justify-content:flex-end} }
+
 /* app sneak-peek */
 .phones{display:flex;justify-content:center;align-items:flex-end;gap:32px;flex-wrap:wrap}
 .phone{flex:0 0 auto;width:240px;text-align:center}
