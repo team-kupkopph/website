@@ -3,6 +3,7 @@
 const sharp = require("sharp");
 const path = require("path");
 
+const DIR = __dirname;
 const NAVY = "#1F3A5F", TEAL = "#1C6B6B", ACCENT = "#2E8B8B", MUTED = "#5f5e5a",
       SOFT = "#e7f0ef", BG = "#f6f5f1", LINE = "#e3e1d9", OK = "#27500A", OKBG = "#EAF3DE",
       WARN = "#633806", WARNBG = "#FAEEDA";
