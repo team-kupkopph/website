@@ -147,6 +147,19 @@ section{padding:72px 0}
 .peek-note{text-align:center;color:var(--hint);font-size:13.5px;margin-top:30px}
 @media (max-width:560px){ .phone{width:60%} }
 
+/* manifesto / our-why band */
+.manifesto{background:linear-gradient(160deg,var(--teal) 0%,var(--teal-d) 100%);color:#eef6f4;
+  border-radius:28px;padding:64px 40px;text-align:center}
+.manifesto .tag{color:#bfe3df}
+.manifesto h2{color:#fff;font-size:clamp(28px,4.2vw,46px);max-width:820px;margin:10px auto 0}
+.manifesto .accent{width:56px;height:5px;border-radius:3px;background:var(--accent);margin:22px auto}
+.manifesto .beliefs{list-style:none;padding:0;margin:8px auto 28px;max-width:640px}
+.manifesto .beliefs li{font-size:clamp(17px,2.2vw,21px);color:#dcefec;padding:7px 0;font-weight:500}
+.manifesto .beliefs li strong{color:#fff}
+.manifesto .btn{background:#fff;color:var(--teal-d);border-color:#fff}
+.manifesto .btn:hover{background:#eef6f5;border-color:#eef6f5}
+.manifesto .kicker{color:#cfe6e3;font-size:15px;margin-top:16px}
+
 /* CTA band */
 .ctaband{text-align:center;background:var(--bg3);border-radius:24px;padding:52px 32px}
 .ctaband h2{margin-bottom:.3em}
