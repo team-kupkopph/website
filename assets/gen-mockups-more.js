@@ -20,10 +20,10 @@ function statusbar() {
     `<circle cx="486" cy="32" r="5" fill="${NAVY}"/><circle cx="502" cy="32" r="5" fill="${NAVY}"/><rect x="470" y="22" width="40" height="18" rx="4" fill="none" stroke="${NAVY}" stroke-width="2"/>`;
 }
 function bottomnav(active) {
-  const items = ["Home", "Adopt", "Sagip", "Inbox", "You"];
+  const items = ["Home", "Adopt", "Volunteer", "You"];
   let s = `<rect x="0" y="${SH - 96}" width="${SW}" height="96" fill="#ffffff"/><line x1="0" y1="${SH - 96}" x2="${SW}" y2="${SH - 96}" stroke="${LINE}" stroke-width="1.5"/>`;
   items.forEach((lab, i) => {
-    const cx = 54 + i * 108, on = i === active;
+    const cx = (i + 0.5) * (SW / items.length), on = i === active;
     s += `<circle cx="${cx}" cy="${SH - 58}" r="16" fill="${on ? TEAL : "#cfd6d2"}"/>`;
     s += t(cx, SH - 22, lab, { size: 17, anchor: "middle", fill: on ? TEAL : MUTED, weight: on ? "700" : "normal" });
   });
@@ -81,7 +81,7 @@ function community() {
   // impact strip
   s += rrect(34, 120, 472, 96, 18, TEAL);
   s += t(58, 160, "Your impact", { size: 18, fill: "#cfe6e3", weight: "700" });
-  s += t(58, 192, "3 rescues · 8 badges · 12 walks", { size: 20, fill: "#fff", weight: "700" });
+  s += t(58, 192, "3 rescues · 8 badges · 12 shifts", { size: 20, fill: "#fff", weight: "700" });
   s += t(34, 268, "Kupkop stories", { size: 22, weight: "700" });
   const stories = [["Brownie found a home!", "Adopted by the Cruz family", "142", 292],
                    ["Mingming's recovery", "From street to safe in 2 weeks", "98", 470],

@@ -20,7 +20,7 @@ function statusbar() {
     `<circle cx="486" cy="32" r="5" fill="${NAVY}"/><circle cx="502" cy="32" r="5" fill="${NAVY}"/><rect x="470" y="22" width="40" height="18" rx="4" fill="none" stroke="${NAVY}" stroke-width="2"/>`;
 }
 function orgnav(active) {
-  const items = ["Dashboard", "Listings", "Walks", "Inbox", "Org"];
+  const items = ["Dashboard", "Listings", "Volunteer", "Requests", "Org"];
   let s = `<rect x="0" y="${SH - 96}" width="${SW}" height="96" fill="#ffffff"/><line x1="0" y1="${SH - 96}" x2="${SW}" y2="${SH - 96}" stroke="${LINE}" stroke-width="1.5"/>`;
   items.forEach((lab, i) => {
     const cx = 54 + i * 108, on = i === active;
@@ -41,7 +41,7 @@ function dashboard() {
   s += t(114, 90, "Pawssion Home QC", { size: 27, weight: "700" });
   s += t(114, 120, "Verified shelter", { size: 17, fill: TEAL, weight: "700" });
   // stats
-  const stats = [["6", "In care"], ["4", "Inquiries"], ["2", "Walks today"]];
+  const stats = [["6", "In care"], ["4", "Inquiries"], ["2", "Shifts today"]];
   stats.forEach(([n, l], i) => {
     const x = 34 + i * 158;
     s += rrect(x, 164, 142, 132, 20, "#ffffff", LINE);
@@ -94,7 +94,7 @@ function listings() {
 // ---------- C. Walks ----------
 function walks() {
   let s = `<rect width="${SW}" height="${SH}" fill="${BG}"/>` + statusbar();
-  s += t(34, 100, "Volunteer walks", { size: 30, weight: "700" });
+  s += t(34, 100, "Kawang-Gawa shifts", { size: 30, weight: "700" });
   s += t(34, 136, "This Saturday, Aug 9", { size: 19, fill: MUTED });
   const slots = [["9:00 AM", "3 / 4 booked", "Open", OKBG, OK, 184],
                  ["10:30 AM", "1 / 4 booked", "Open", OKBG, OK, 360],

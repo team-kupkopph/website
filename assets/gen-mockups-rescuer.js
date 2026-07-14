@@ -23,10 +23,10 @@ function back(title) {
   return t(40, 96, "‹", { size: 44, weight: "700", fill: TEAL }) + t(74, 92, title, { size: 28, weight: "700" });
 }
 function bottomnav(active) {
-  const items = ["Home", "Adopt", "Sagip", "Inbox", "You"];
+  const items = ["Home", "Adopt", "Volunteer", "You"];
   let s = `<rect x="0" y="${SH - 96}" width="${SW}" height="96" fill="#ffffff"/><line x1="0" y1="${SH - 96}" x2="${SW}" y2="${SH - 96}" stroke="${LINE}" stroke-width="1.5"/>`;
   items.forEach((lab, i) => {
-    const cx = 54 + i * 108, on = i === active;
+    const cx = (i + 0.5) * (SW / items.length), on = i === active;
     s += `<circle cx="${cx}" cy="${SH - 58}" r="16" fill="${on ? TEAL : "#cfd6d2"}"/>`;
     s += t(cx, SH - 22, lab, { size: 17, anchor: "middle", fill: on ? TEAL : MUTED, weight: on ? "700" : "normal" });
   });
@@ -59,8 +59,8 @@ function alert() {
   s += t(34, 770, "0.4 km away", { size: 22, weight: "700", fill: TEAL });
   // CTAs
   s += rrect(34, 812, 472, 64, 32, TEAL) + t(270, 853, "Claim this rescue", { size: 23, anchor: "middle", fill: "#fff", weight: "700" });
-  s += rrect(34, 890, 472, 60, 30, "#ffffff", LINE) + t(270, 928, "Message reporter", { size: 21, anchor: "middle", fill: TEAL, weight: "700" });
-  s += bottomnav(2);
+  s += rrect(34, 890, 472, 60, 30, "#ffffff", LINE) + t(270, 928, "Contact reporter", { size: 21, anchor: "middle", fill: TEAL, weight: "700" });
+  s += bottomnav(0);
   return s;
 }
 
@@ -88,7 +88,7 @@ function status() {
     if (time) s += t(x + 50, cy + 26, time, { size: 18, fill: MUTED });
   });
   s += rrect(34, SH - 188, 472, 64, 32, TEAL) + t(270, SH - 147, "Add an update", { size: 23, anchor: "middle", fill: "#fff", weight: "700" });
-  s += bottomnav(2);
+  s += bottomnav(0);
   return s;
 }
 
@@ -122,7 +122,7 @@ function impact() {
     const cw = 22 + st.length * 11;
     s += chip(490 - cw, y + 30, st, tb, tf);
   });
-  s += bottomnav(4);
+  s += bottomnav(3);
   return s;
 }
 

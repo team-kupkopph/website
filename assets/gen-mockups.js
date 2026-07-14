@@ -24,10 +24,10 @@ function statusbar() {
     `<circle cx="486" cy="32" r="5" fill="${NAVY}"/><circle cx="502" cy="32" r="5" fill="${NAVY}"/><rect x="476" y="24" width="34" height="0" /><rect x="470" y="22" width="40" height="18" rx="4" fill="none" stroke="${NAVY}" stroke-width="2"/>`;
 }
 function bottomnav(active) {
-  const items = ["Home", "Adopt", "Sagip", "Inbox", "You"];
+  const items = ["Home", "Adopt", "Volunteer", "You"];
   let s = `<rect x="0" y="${SH - 96}" width="${SW}" height="96" fill="#ffffff"/><line x1="0" y1="${SH - 96}" x2="${SW}" y2="${SH - 96}" stroke="${LINE}" stroke-width="1.5"/>`;
   items.forEach((lab, i) => {
-    const cx = 54 + i * 108;
+    const cx = (i + 0.5) * (SW / items.length);
     const on = i === active;
     s += `<circle cx="${cx}" cy="${SH - 58}" r="16" fill="${on ? TEAL : "#cfd6d2"}"/>`;
     s += t(cx, SH - 22, lab, { size: 17, anchor: "middle", fill: on ? TEAL : MUTED, weight: on ? "700" : "normal" });
@@ -51,7 +51,7 @@ function home() {
   s += t(60, 256, "Report it in seconds — help is near.", { size: 18, fill: "#d8ece9" });
   s += rrect(60, 268, 168, 44, 22, "#ffffff") + t(144, 297, "Report now", { size: 18, anchor: "middle", fill: TEAL, weight: "700" });
   // quick actions
-  const qa = [["Rescue", 34, 350], ["Adopt", 290, 350], ["Donate", 34, 486], ["Walks", 290, 486]];
+  const qa = [["Lost &amp; found", 34, 350], ["Adopt", 290, 350], ["Donate", 34, 486], ["Volunteer", 290, 486]];
   qa.forEach(([lab, x, y]) => {
     s += rrect(x, y, 216, 116, 20, "#ffffff", LINE);
     s += `<circle cx="${x + 40}" cy="${y + 42}" r="26" fill="${SOFT}"/>`;
@@ -130,7 +130,7 @@ function donate() {
   });
   s += rrect(34, 786, 472, 60, 30, TEAL) + t(270, 825, "Open GCash", { size: 23, anchor: "middle", fill: "#fff", weight: "700" });
   s += t(270, 900, "100% goes to the shelter.", { size: 18, anchor: "middle", fill: MUTED });
-  s += bottomnav(2);
+  s += bottomnav(0);
   return s;
 }
 
