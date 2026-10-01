@@ -29,6 +29,8 @@ and a small JS file.
 - `robots.txt` — allows all crawlers, points to the sitemap
 - `sitemap.xml` — lists all public pages (uses `https://kupkopph.com`)
 - `gen-assets.js` — regenerates the share image + favicons (`node gen-assets.js`)
+- `tools/v3-mockups/` — regenerates the `assets/mockup-*.png` app previews from the V3 design
+  artboards (see its README)
 
 ### Shared assets
 - `assets/styles.css` — all styling (single source of truth; design tokens are CSS
