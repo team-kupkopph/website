@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>V3 mockup capture</title>
+<style>body{font:14px system-ui,sans-serif;margin:24px;color:#12213A}li.ok{color:#1C6B6B}li.bad{color:#B23B3B}</style>
+</head>
+<body>
+<h1>Capturing V3 artboards…</h1>
+<ol id="log"></ol>
+<script>
+// Each job: [artboard file, raw PNG name, state to seed]. frame.js maps raw names to site assets.
+const JOBS = [
+  ["Main", "home", {}],
+  ["Adopt", "adopt", {}],
+  ["VolunteerHub", "volunteer", {}],
+  ["Adopt", "petdetail", { facts: true }],
+  ["Inquiry", "inquiry", {}],
+  ["ShiftDetail", "shift", {}],
+  ["Profile", "verify", {}],
+  ["RescueCase", "status", {}],
+  ["ShelterHome", "dashboard", { status: 2 }],
+  ["ShelterRequests", "requests", {}],
+  ["ShelterDonate", "shelter-donate", {}]
+];
+
+async function capture(file, name, state) {
+  const f = document.createElement("iframe");
+  f.style.cssText = "position:fixed;right:0;top:0;width:390px;height:844px;border:0";
+  f.src = `/${file}.dc.html?capture=${name}&state=${encodeURIComponent(JSON.stringify(state))}`;
+  document.body.appendChild(f);
+  for (let i = 0; i < 100; i++) {
+    await new Promise(r => setTimeout(r, 200));
+    if (f.contentWindow && f.contentWindow.__captured) break;
+  }
+  const status = f.contentWindow.__captured;
+  f.remove();
+  return status;
+}
+
+(async () => {
+  const log = document.getElementById("log");
+  for (const [file, name, state] of JOBS) {
+    const status = await capture(file, name, state);
+    const li = document.createElement("li");
+    li.className = status === 200 ? "ok" : "bad";
+    li.textContent = `${name} (${file}) — ${status === 200 ? "saved" : "FAILED"}`;
+    log.appendChild(li);
+  }
+  document.querySelector("h1").textContent = "Done — now run: node frame.js";
+  window.__done = true;
+})();
+</script>
+</body>
+</html>
